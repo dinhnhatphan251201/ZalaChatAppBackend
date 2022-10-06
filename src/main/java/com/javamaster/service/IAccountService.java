@@ -10,4 +10,5 @@ import com.javamaster.entity.Account;
 public interface IAccountService {
 	int createAccount(Account account) throws InterruptedException, ExecutionException;
 	Account getAccountByPhoneNumber(String phoneNumber) throws InterruptedException, ExecutionException;
+	int updateAccount(Account account);
 }

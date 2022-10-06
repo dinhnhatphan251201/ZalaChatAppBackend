@@ -172,5 +172,14 @@ public class ConversationServiceImpl implements IConversationService {
 
 		return memberOfConversation;
 	}
+	@Override
+	public Conversation updateConvertation(Conversation conversation) throws InterruptedException, ExecutionException {
+		Firestore dbFireStore = FirestoreClient.getFirestore();
+		
+		ApiFuture<WriteResult> collectionAPIFuture = dbFireStore.collection(COLLECTION_NAME).document(conversation.getId())
+				.set(conversation);
+		collectionAPIFuture.get().getUpdateTime().toString();
+		return conversation;
+	}
 
 }

@@ -6,15 +6,15 @@ public class Member {
 	private String id;
 	private String userId;
 	private String nameUser;
+	private String avatar;
 	private List<String> messages;
 	private String conversationId;
-	public Member(String id, String userId, String nameUser, List<String> messages, String conversationId) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.nameUser = nameUser;
-		this.messages = messages;
-		this.conversationId = conversationId;
+
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 	public Member() {
 		super();
@@ -53,11 +53,22 @@ public class Member {
 	public void setConversationId(String conversationId) {
 		this.conversationId = conversationId;
 	}
+	public Member(String id, String userId, String nameUser, String avatar, List<String> messages,
+			String conversationId) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.nameUser = nameUser;
+		this.avatar = avatar;
+		this.messages = messages;
+		this.conversationId = conversationId;
+	}
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", userId=" + userId + ", nameUser=" + nameUser + ", messages=" + messages
-				+ ", conversationId=" + conversationId + "]";
+		return "Member [id=" + id + ", userId=" + userId + ", nameUser=" + nameUser + ", avatar=" + avatar
+				+ ", messages=" + messages + ", conversationId=" + conversationId + "]";
 	}
+
 	
 	
 	

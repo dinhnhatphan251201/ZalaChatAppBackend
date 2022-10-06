@@ -62,5 +62,19 @@ public class AccountServiceImpl implements IAccountService{
         }
 		return account;
 	}
+	@Override
+	public int updateAccount(Account account) {
+		try {
+			
+			Firestore dbFireStore = FirestoreClient.getFirestore();
+			ApiFuture<WriteResult> collectionAPIFuture = dbFireStore.collection(COLLECTION_NAME).document(account.getId())
+					.set(account);
+			collectionAPIFuture.get().getUpdateTime().toString();
+			
+			return 0;
+		} catch (Exception e) {
+			return 1;
+		}
+	}
 
 }

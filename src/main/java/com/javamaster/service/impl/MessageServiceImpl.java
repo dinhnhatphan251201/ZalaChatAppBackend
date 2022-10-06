@@ -16,6 +16,10 @@ import com.google.cloud.firestore.Internal;
 import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.storage.Bucket;
+import com.google.cloud.storage.BucketInfo;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageOptions;
 import com.google.firebase.cloud.FirestoreClient;
 import com.javamaster.entity.Contact;
 import com.javamaster.entity.Conversation;
@@ -109,6 +113,15 @@ public class MessageServiceImpl implements IMessageService {
 	public Message sendMessage(Message message) throws InterruptedException, ExecutionException {
 		Message result = addMessage(message);
 		return result;
+	}
+	@Override
+	public Message updateMessage(Message message) throws InterruptedException, ExecutionException {
+		Firestore dbFireStore = FirestoreClient.getFirestore();
+		
+		ApiFuture<WriteResult> collectionAPIFuture = dbFireStore.collection(COLLECTION_NAME).document(message.getId())
+				.set(message);
+		collectionAPIFuture.get().getUpdateTime().toString();
+		return message;
 	}
 
 }
