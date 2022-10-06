@@ -6,18 +6,30 @@ public class User {
 	private String id;
 	private String fullName;
 	private String phoneNumber;
+	private String avatar;
 	private List<String> members;
 	private List<String> conversations;
-	public User(String id, String fullName, String phoneNumber, List<String> members, List<String> conversations) {
+
+	public User(String id, String fullName, String phoneNumber, String avatar, List<String> members,
+			List<String> conversations) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
 		this.phoneNumber = phoneNumber;
+		this.avatar = avatar;
 		this.members = members;
 		this.conversations = conversations;
 	}
+
 	public User() {
 		super();
+	}
+	
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 	public String getId() {
 		return id;
@@ -49,12 +61,13 @@ public class User {
 	public void setConversations(List<String> conversations) {
 		this.conversations = conversations;
 	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", members=" + members
-				+ ", conversations=" + conversations + "]";
+		return "User [id=" + id + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", avatar=" + avatar
+				+ ", members=" + members + ", conversations=" + conversations + "]";
 	}
-	
+
 	
 	
 	

@@ -67,5 +67,14 @@ public class MemberServiceImpl implements IMemberService{
 		Member member = null;
 		return member = document.toObject(Member.class);
 	}
+	@Override
+	public Member updateMember(Member member) throws InterruptedException, ExecutionException {
+		Firestore dbFireStore = FirestoreClient.getFirestore();
+		
+		ApiFuture<WriteResult> collectionAPIFuture = dbFireStore.collection(COLLECTION_NAME).document(member.getId())
+				.set(member);
+		collectionAPIFuture.get().getUpdateTime().toString();
+		return member;
+	}
 	
 }

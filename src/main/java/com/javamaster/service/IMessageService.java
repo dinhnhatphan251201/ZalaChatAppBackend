@@ -13,4 +13,5 @@ public interface IMessageService {
 	List<Message> getMessagesByConversationId(String conversationId) throws InterruptedException, ExecutionException;
 	Message getMessageById(String MessageId) throws InterruptedException, ExecutionException;
 	Message sendMessage(Message message) throws InterruptedException, ExecutionException;
+	Message updateMessage(Message message) throws InterruptedException, ExecutionException;
 }

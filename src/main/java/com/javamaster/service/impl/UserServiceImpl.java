@@ -72,5 +72,14 @@ public class UserServiceImpl implements IUserService {
         }
         return user;
 	}
+	@Override
+	public User updateUser(User user) throws InterruptedException, ExecutionException {
+		Firestore dbFireStore = FirestoreClient.getFirestore();
+		
+		ApiFuture<WriteResult> collectionAPIFuture = dbFireStore.collection(COLLECTION_NAME).document(user.getId())
+				.set(user);
+		collectionAPIFuture.get().getUpdateTime().toString();
+		return user;
+	}
 
 }
