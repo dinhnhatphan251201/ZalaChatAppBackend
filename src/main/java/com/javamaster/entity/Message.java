@@ -5,29 +5,29 @@ import java.util.Date;
 public class Message {
 	private String id;
 	private String sender;
+	private String avatarSender;
 	private String content;
+	private String type;
 	private String conversationId;
 	private String senderName;
 	private Date createAt;
-	public Message(String id, String sender, String content, String conversationId, String senderName) {
-		super();
-		this.id = id;
-		this.sender = sender;
-		this.content = content;
-		this.conversationId = conversationId;
-		this.senderName = senderName;
-		this.createAt = new Date();
+
+	public String getAvatarSender() {
+		return avatarSender;
 	}
-	
-	public Message(String id, String sender, String content, String conversationId, String senderName, Date createAt) {
-		super();
-		this.id = id;
-		this.sender = sender;
-		this.content = content;
-		this.conversationId = conversationId;
-		this.senderName = senderName;
-		this.createAt = createAt;
+
+	public void setAvatarSender(String avatarSender) {
+		this.avatarSender = avatarSender;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public Message() {
 		super();
 	}
@@ -71,10 +71,24 @@ public class Message {
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
+
+	public Message(String id, String sender, String avatarSender, String content, String type, String conversationId,
+			String senderName, Date createAt) {
+		super();
+		this.id = id;
+		this.sender = sender;
+		this.avatarSender = avatarSender;
+		this.content = content;
+		this.type = type;
+		this.conversationId = conversationId;
+		this.senderName = senderName;
+		this.createAt = createAt;
+	}
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", sender=" + sender + ", content=" + content + ", conversationId="
-				+ conversationId + ", senderName=" + senderName + ", createAt=" + createAt + "]";
+		return "Message [id=" + id + ", sender=" + sender + ", avatarSender=" + avatarSender + ", content=" + content
+				+ ", type=" + type + ", conversationId=" + conversationId + ", senderName=" + senderName + ", createAt="
+				+ createAt + "]";
 	}
 	
 	

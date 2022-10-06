@@ -16,4 +16,5 @@ public interface IConversationService {
 	Conversation getConversationById(String conversationId) throws InterruptedException, ExecutionException;
 	List<Message> getAllMessageInConversation(String conversationId) throws InterruptedException, ExecutionException;
 	List<Member> getAllMemberInConversation(String conversationId) throws InterruptedException, ExecutionException;
+	Conversation updateConvertation(Conversation conversation) throws InterruptedException, ExecutionException;
 }
